@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { videoThumbnails } from "../assets/videoThumbnails";
 import {
   Box,
@@ -12,26 +12,19 @@ import {
   Chip,
   useMediaQuery,
   useTheme,
-  Dialog,
-  DialogContent,
-  IconButton,
 } from "@mui/material";
-import { PlayArrow, GitHub, Launch, Close } from "@mui/icons-material";
+import { PlayArrow, GitHub, Launch } from "@mui/icons-material";
 
 const VideoSection = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const isSmallMobile = useMediaQuery(theme.breakpoints.down("sm"));
-
-  const [openVideo, setOpenVideo] = useState(false);
-  const [currentVideo, setCurrentVideo] = useState("");
-
   const videos = [
     {
       title: "E-Commerce Platform Demo",
       description:
         "A comprehensive walkthrough of the e-commerce platform showing user authentication, product management, cart functionality, and payment integration.",
-      videoUrl: "/ecommercevideo.mp4", // matches your file
+      videoUrl: "/ecommercevideo.mp4",
       thumbnail: videoThumbnails["ecommerce"],
       duration: "8:45",
       technologies: ["React", "Node.js", "MongoDB", "Razorpay"],
@@ -42,22 +35,23 @@ const VideoSection = () => {
       title: "Payroll Management System",
       description:
         "Demonstration of a full-stack payroll management application built with the MERN stack, featuring employee management, salary settings, leave tracking, and salary slip generation.",
-      videoUrl: "https://www.youtube.com/embed/your-payroll-video-id",
-      duration: "8:45",
-      technologies: ["React", "Node.js", "MongoDB", "Express", "MUI", "Redux Toolkit"],
+      videoUrl: "https://www.youtube.com/embed/your-payroll-video-id", // replace with actual YouTube video ID
+      duration: "8:45", // replace with your actual video duration
+      technologies: [
+        "React",
+        "Node.js",
+        "MongoDB",
+        "Express",
+        "MUI",
+        "Redux Toolkit",
+      ],
       githubUrl: "https://github.com/Chetansharma20/Payroll-System",
-      liveUrl: "https://your-payroll-demo.com",
+      liveUrl: "https://your-payroll-demo.com", // replace with actual live demo URL if available
     },
   ];
 
-  const handleVideoOpen = (videoUrl) => {
-    setCurrentVideo(videoUrl);
-    setOpenVideo(true);
-  };
-
-  const handleVideoClose = () => {
-    setOpenVideo(false);
-    setCurrentVideo("");
+  const handleVideoPlay = (videoUrl) => {
+    window.open(videoUrl, "_blank");
   };
 
   return (
@@ -70,7 +64,11 @@ const VideoSection = () => {
           gutterBottom
           sx={{
             mb: { xs: 6, md: 8 },
-            fontSize: { xs: "2rem", sm: "2.5rem", md: "3rem" },
+            fontSize: {
+              xs: "2rem",
+              sm: "2.5rem",
+              md: "3rem",
+            },
           }}
         >
           Project Demos
@@ -82,7 +80,11 @@ const VideoSection = () => {
           color="text.secondary"
           sx={{
             mb: { xs: 6, md: 8 },
-            fontSize: { xs: "1rem", sm: "1.1rem", md: "1.2rem" },
+            fontSize: {
+              xs: "1rem",
+              sm: "1.1rem",
+              md: "1.2rem",
+            },
             px: { xs: 2, sm: 0 },
           }}
         >
@@ -115,8 +117,9 @@ const VideoSection = () => {
                     cursor: "pointer",
                     overflow: "hidden",
                   }}
-                  onClick={() => handleVideoOpen(video.videoUrl)}
+                  onClick={() => handleVideoPlay(video.videoUrl)}
                 >
+                  {/* Video thumbnail image */}
                   {video.thumbnail && (
                     <Box
                       component="img"
@@ -133,6 +136,7 @@ const VideoSection = () => {
                       }}
                     />
                   )}
+                  {/* Play icon overlay */}
                   <Box
                     sx={{
                       position: "absolute",
@@ -156,14 +160,21 @@ const VideoSection = () => {
                         alignItems: "center",
                         justifyContent: "center",
                         transition: "transform 0.3s",
-                        "&:hover": { transform: "scale(1.1)" },
+                        "&:hover": {
+                          transform: "scale(1.1)",
+                        },
                       }}
                     >
                       <PlayArrow
-                        sx={{ fontSize: { xs: 30, sm: 35, md: 40 }, color: "primary.main", ml: 0.5 }}
+                        sx={{
+                          fontSize: { xs: 30, sm: 35, md: 40 },
+                          color: "primary.main",
+                          ml: 0.5,
+                        }}
                       />
                     </Box>
                   </Box>
+                  {/* Duration badge */}
                   <Box
                     sx={{
                       position: "absolute",
@@ -187,7 +198,13 @@ const VideoSection = () => {
                     variant={isMobile ? "h6" : "h5"}
                     component="h3"
                     gutterBottom
-                    sx={{ fontSize: { xs: "1.1rem", sm: "1.25rem", md: "1.5rem" } }}
+                    sx={{
+                      fontSize: {
+                        xs: "1.1rem",
+                        sm: "1.25rem",
+                        md: "1.5rem",
+                      },
+                    }}
                   >
                     {video.title}
                   </Typography>
@@ -196,7 +213,10 @@ const VideoSection = () => {
                     color="text.secondary"
                     sx={{
                       mb: 2,
-                      fontSize: { xs: "0.875rem", sm: "0.9rem" },
+                      fontSize: {
+                        xs: "0.875rem",
+                        sm: "0.9rem",
+                      },
                       display: "-webkit-box",
                       WebkitLineClamp: { xs: 3, sm: 4 },
                       WebkitBoxOrient: "vertical",
@@ -206,7 +226,14 @@ const VideoSection = () => {
                     {video.description}
                   </Typography>
 
-                  <Box sx={{ display: "flex", flexWrap: "wrap", gap: { xs: 0.25, sm: 0.5 }, mb: 2 }}>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      flexWrap: "wrap",
+                      gap: { xs: 0.25, sm: 0.5 },
+                      mb: 2,
+                    }}
+                  >
                     {video.technologies.map((tech, techIndex) => (
                       <Chip
                         key={techIndex}
@@ -214,7 +241,13 @@ const VideoSection = () => {
                         size="small"
                         variant="outlined"
                         color="primary"
-                        sx={{ fontSize: { xs: "0.7rem", sm: "0.75rem" }, height: { xs: 24, sm: 28 } }}
+                        sx={{
+                          fontSize: {
+                            xs: "0.7rem",
+                            sm: "0.75rem",
+                          },
+                          height: { xs: 24, sm: 28 },
+                        }}
                       />
                     ))}
                   </Box>
@@ -226,13 +259,16 @@ const VideoSection = () => {
                     pt: 0,
                     gap: { xs: 0.5, sm: 1 },
                     flexDirection: { xs: "column", sm: "row" },
-                    "& .MuiButton-root": { fontSize: { xs: "0.8rem", sm: "0.875rem" }, minWidth: { xs: "100%", sm: "auto" } },
+                    "& .MuiButton-root": {
+                      fontSize: { xs: "0.8rem", sm: "0.875rem" },
+                      minWidth: { xs: "100%", sm: "auto" },
+                    },
                   }}
                 >
                   <Button
                     size={isSmallMobile ? "small" : "medium"}
                     startIcon={<PlayArrow />}
-                    onClick={() => handleVideoOpen(video.videoUrl)}
+                    onClick={() => handleVideoPlay(video.videoUrl)}
                     variant="contained"
                     color="secondary"
                     fullWidth={isSmallMobile}
@@ -268,26 +304,34 @@ const VideoSection = () => {
         </Grid>
 
         <Box sx={{ textAlign: "center", mt: { xs: 6, md: 8 } }}>
-          <Typography variant={isMobile ? "h6" : "h5"} gutterBottom sx={{ fontSize: { xs: "1.1rem", sm: "1.25rem", md: "1.5rem" } }}>
+          <Typography
+            variant={isMobile ? "h6" : "h5"}
+            gutterBottom
+            sx={{
+              fontSize: {
+                xs: "1.1rem",
+                sm: "1.25rem",
+                md: "1.5rem",
+              },
+            }}
+          >
             More Videos Coming Soon
           </Typography>
-          <Typography variant="body2" color="text.secondary" sx={{ fontSize: { xs: "0.875rem", sm: "0.9rem" }, px: { xs: 2, sm: 0 } }}>
-            I regularly create video content showcasing new projects and tutorials. Follow my GitHub for updates on new releases.
+          <Typography
+            variant="body2"
+            color="text.secondary"
+            sx={{
+              fontSize: {
+                xs: "0.875rem",
+                sm: "0.9rem",
+              },
+              px: { xs: 2, sm: 0 },
+            }}
+          >
+            I regularly create video content showcasing new projects and
+            tutorials. Follow my GitHub for updates on new releases.
           </Typography>
         </Box>
-
-        {/* Video Modal */}
-        <Dialog open={openVideo} onClose={handleVideoClose} maxWidth="md" fullWidth>
-          <DialogContent sx={{ p: 0, position: "relative", bgcolor: "black" }}>
-            <IconButton
-              onClick={handleVideoClose}
-              sx={{ position: "absolute", top: 8, right: 8, color: "white", zIndex: 10 }}
-            >
-              <Close />
-            </IconButton>
-            <video src={currentVideo} controls autoPlay style={{ width: "100%", height: "100%" }} />
-          </DialogContent>
-        </Dialog>
       </Container>
     </Box>
   );
