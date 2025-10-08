@@ -24,7 +24,8 @@ const VideoSection = () => {
       title: "E-Commerce Platform Demo",
       description:
         "A comprehensive walkthrough of the e-commerce platform showing user authentication, product management, cart functionality, and payment integration.",
-      videoUrl: "https://res.cloudinary.com/duvw71tdz/video/upload/v1758862480/ecommercedemo_nud7s0.mp4",
+      videoUrl:
+        "https://res.cloudinary.com/duvw71tdz/video/upload/v1758862480/ecommercedemo_nud7s0.mp4",
       thumbnail: videoThumbnails["ecommerce"],
       duration: "8:45",
       technologies: ["React", "Node.js", "MongoDB", "Razorpay"],
