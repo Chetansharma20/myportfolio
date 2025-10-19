@@ -27,7 +27,7 @@ const VideoSection = () => {
       videoUrl:
         "https://res.cloudinary.com/duvw71tdz/video/upload/v1758862480/ecommercedemo_nud7s0.mp4",
       thumbnail: videoThumbnails["ecommerce"],
-      duration: "8:45",
+      duration: "5:18",
       technologies: ["React", "Node.js", "MongoDB", "Razorpay"],
       githubUrl: "https://github.com/Chetansharma20/ecommerce-platform",
       liveUrl: "https://your-ecommerce-demo.com",
@@ -36,8 +36,10 @@ const VideoSection = () => {
       title: "Payroll Management System",
       description:
         "Demonstration of a full-stack payroll management application built with the MERN stack, featuring employee management, salary settings, leave tracking, and salary slip generation.",
-      videoUrl: "https://www.youtube.com/embed/your-payroll-video-id", // replace with actual YouTube video ID
-      duration: "8:45", // replace with your actual video duration
+      videoUrl:
+        "https://player.cloudinary.com/embed/?cloud_name=duvw71tdz&public_id=payroll_w92t41&profile=cld-default",
+      duration: "5:06", // replace with your actual video duration
+      thumbnail: videoThumbnails["payroll"],
       technologies: [
         "React",
         "Node.js",
