@@ -51,7 +51,7 @@ const ProjectsSection = () => {
         "Redux Toolkit",
       ],
       githubUrl: "https://github.com/Chetansharma20/Payroll-System",
-      liveUrl: "https://your-payroll-demo.com",
+      liveUrl: "https://payroll-system-roan.vercel.app/",
     },
     {
       title: "Store Rating System",

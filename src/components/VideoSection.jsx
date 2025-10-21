@@ -49,7 +49,7 @@ const VideoSection = () => {
         "Redux Toolkit",
       ],
       githubUrl: "https://github.com/Chetansharma20/Payroll-System",
-      liveUrl: "https://your-payroll-demo.com", // replace with actual live demo URL if available
+      liveUrl: "https://payroll-system-roan.vercel.app/", // replace with actual live demo URL if available
     },
   ];
 
