@@ -108,7 +108,7 @@ const HeroSection = () => {
                     backgroundColor: '#ffc107',
                   },
                 }}
-                href="https://drive.google.com/uc?id=11Coj_fc2CXnQryhYiSdknZTKb-__gERG&export=download"
+                href="https://drive.google.com/file/d/1Zkkpd52Zzy7XO1xO87omvQEKgDAYFRCQ/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
               >
