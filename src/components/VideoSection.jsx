@@ -19,6 +19,7 @@ const VideoSection = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const isSmallMobile = useMediaQuery(theme.breakpoints.down("sm"));
+
   const videos = [
     {
       title: "E-Commerce Platform Demo",
@@ -38,7 +39,7 @@ const VideoSection = () => {
         "Demonstration of a full-stack payroll management application built with the MERN stack, featuring employee management, salary settings, leave tracking, and salary slip generation.",
       videoUrl:
         "https://player.cloudinary.com/embed/?cloud_name=duvw71tdz&public_id=payroll_w92t41&profile=cld-default",
-      duration: "5:06", // replace with your actual video duration
+      duration: "5:06",
       thumbnail: videoThumbnails["payroll"],
       technologies: [
         "React",
@@ -49,7 +50,26 @@ const VideoSection = () => {
         "Redux Toolkit",
       ],
       githubUrl: "https://github.com/Chetansharma20/Payroll-System",
-      liveUrl: "https://payroll-system-roan.vercel.app/", // replace with actual live demo URL if available
+      liveUrl: "https://payroll-system-roan.vercel.app/",
+    },
+    {
+      title: "Store Rating System",
+      description:
+        "A modern role-based store rating platform with separate dashboards for admin, store owners, and users, enabling live feedback and analytics visualization.",
+      videoUrl:
+        "https://res.cloudinary.com/duvw71tdz/video/upload/v1761207633/store_rating_mfcfnq.mp4",
+      duration: "2:02",
+      thumbnail: videoThumbnails["store"],
+      technologies: [
+        "React",
+        "Node.js",
+        "MongoDB",
+        "Express",
+        "MUI",
+        "Redux Toolkit",
+      ],
+      githubUrl: "https://github.com/Chetansharma20/store-rating",
+      liveUrl: "https://store-rating-app.onrender.com/",
     },
   ];
 
@@ -59,7 +79,7 @@ const VideoSection = () => {
 
   return (
     <Box id="videos" sx={{ py: 10, backgroundColor: "background.default" }}>
-      <Container maxWidth="lg">
+      <Container maxWidth="lg" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
         <Typography
           variant={isMobile ? "h3" : "h2"}
           component="h2"
@@ -96,12 +116,13 @@ const VideoSection = () => {
 
         <Grid container spacing={{ xs: 3, md: 4 }} justifyContent="center">
           {videos.map((video, index) => (
-            <Grid item xs={12} sm={6} md={6} key={index}>
+            <Grid item xs={12} sm={6} md={4} lg={4} key={index}>
               <Card
                 sx={{
                   height: "100%",
                   display: "flex",
                   flexDirection: "column",
+                  justifyContent: "space-between",
                   transition: "transform 0.3s, box-shadow 0.3s",
                   "&:hover": {
                     transform: "translateY(-5px)",
@@ -109,10 +130,11 @@ const VideoSection = () => {
                   },
                 }}
               >
+                {/* Video Thumbnail */}
                 <Box
                   sx={{
                     position: "relative",
-                    height: { xs: 200, sm: 240, md: 280 },
+                    height: { xs: 200, sm: 240, md: 260 },
                     backgroundColor: "grey.900",
                     display: "flex",
                     alignItems: "center",
@@ -122,12 +144,11 @@ const VideoSection = () => {
                   }}
                   onClick={() => handleVideoPlay(video.videoUrl)}
                 >
-                  {/* Video thumbnail image */}
                   {video.thumbnail && (
                     <Box
                       component="img"
                       src={video.thumbnail}
-                      alt={video.title + " thumbnail"}
+                      alt={`${video.title} thumbnail`}
                       sx={{
                         width: "100%",
                         height: "100%",
@@ -139,7 +160,8 @@ const VideoSection = () => {
                       }}
                     />
                   )}
-                  {/* Play icon overlay */}
+
+                  {/* Play Button Overlay */}
                   <Box
                     sx={{
                       position: "absolute",
@@ -157,8 +179,8 @@ const VideoSection = () => {
                       sx={{
                         backgroundColor: "rgba(255,255,255,0.9)",
                         borderRadius: "50%",
-                        width: { xs: 60, sm: 70, md: 80 },
-                        height: { xs: 60, sm: 70, md: 80 },
+                        width: { xs: 55, sm: 65, md: 75 },
+                        height: { xs: 55, sm: 65, md: 75 },
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
@@ -177,7 +199,8 @@ const VideoSection = () => {
                       />
                     </Box>
                   </Box>
-                  {/* Duration badge */}
+
+                  {/* Duration Badge */}
                   <Box
                     sx={{
                       position: "absolute",
@@ -196,6 +219,7 @@ const VideoSection = () => {
                   </Box>
                 </Box>
 
+                {/* Card Content */}
                 <CardContent sx={{ flexGrow: 1, p: { xs: 2.5, sm: 3 } }}>
                   <Typography
                     variant={isMobile ? "h6" : "h5"}
@@ -211,6 +235,7 @@ const VideoSection = () => {
                   >
                     {video.title}
                   </Typography>
+
                   <Typography
                     variant="body2"
                     color="text.secondary"
@@ -256,6 +281,7 @@ const VideoSection = () => {
                   </Box>
                 </CardContent>
 
+                {/* Card Actions */}
                 <CardActions
                   sx={{
                     p: { xs: 2.5, sm: 3 },
@@ -306,6 +332,7 @@ const VideoSection = () => {
           ))}
         </Grid>
 
+        {/* Footer Section */}
         <Box sx={{ textAlign: "center", mt: { xs: 6, md: 8 } }}>
           <Typography
             variant={isMobile ? "h6" : "h5"}
