@@ -55,7 +55,7 @@ const VideoSection = () => {
     {
       title: "Store Rating System",
       description:
-        "A modern role-based store rating platform with separate dashboards for admin, store owners, and users, enabling live feedback and analytics visualization.",
+        "A modern role-based store rating platform with separate dashboards for admin, store owners, and users, enabling live feedback and analytics visualization use  admin id:- chetan123@gmail.com, password:-12345.",
       videoUrl:
         "https://res.cloudinary.com/duvw71tdz/video/upload/v1761207633/store_rating_mfcfnq.mp4",
       duration: "2:02",
