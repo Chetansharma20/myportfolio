@@ -56,7 +56,7 @@ const ProjectsSection = () => {
     {
       title: "Store Rating System",
       description:
-        "A full-stack web application built with the MERN stack that allows users to rate and review stores. Features include role-based dashboards for Admin, Store Owners, and Users, as well as real-time ratings and analytics.",
+        "A full-stack web application built with the MERN stack that allows users to rate and review stores. Features include role-based dashboards for Admin, Store Owners, and Users, as well as real-time ratings and analytics, use admin id:- aniket@gmail.com, password:-12345.",
       technologies: [
         "React",
         "Node.js",
