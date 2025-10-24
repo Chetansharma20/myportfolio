@@ -66,7 +66,7 @@ const ProjectsSection = () => {
         "Redux Toolkit",
       ],
       githubUrl: "https://github.com/Chetansharma20/store-rating",
-      liveUrl: "https://your-store-rating-demo.com",
+      liveUrl: "https://store-rating-q6l7.vercel.app/",
     },
   ];
 
